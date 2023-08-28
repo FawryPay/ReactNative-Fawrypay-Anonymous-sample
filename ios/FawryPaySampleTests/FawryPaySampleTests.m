@@ -7,11 +7,11 @@
 #define TIMEOUT_SECONDS 600
 #define TEXT_TO_LOOK_FOR @"Welcome to React"
 
-@interface FawryPaySampleTests : XCTestCase
+@interface FawrypaySampleTests : XCTestCase
 
 @end
 
-@implementation FawryPaySampleTests
+@implementation FawrypaySampleTests
 
 - (BOOL)findSubviewInView:(UIView *)view matching:(BOOL (^)(UIView *view))test
 {

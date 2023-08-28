@@ -1,42 +1,46 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import {
   TouchableOpacity,
   Text,
   StyleSheet,
   View,
-  useColorScheme,
 } from 'react-native';
 import {
   pay,
-  openCardsManager,
   MerchantInfo,
   CustomerInfo,
-  BillItems,
   FawryCallbacks,
   FawryLanguages,
+  openCardsManager,
+  BillItems,
 } from '@fawry_pay/rn-fawry-pay-sdk';
 import uuid from 'react-native-uuid';
 
 interface FawryConfig {
-  baseUrl: string;
-  language: FawryLanguages;
-  allow3DPayment: boolean;
-  skipReceipt: boolean;
-  skipLogin: boolean;
-  payWithCardToken: boolean;
-  authCaptureMode: boolean;
-  merchantInfo: MerchantInfo;
-  customerInfo: CustomerInfo;
+  baseUrl: string,
+  language: FawryLanguages,
+  signature: string
+
+  merchantInfo: MerchantInfo,
+  customerInfo: CustomerInfo,
+  allow3DPayment: Boolean,
+  skipReceipt: Boolean,
+  skipLogin: Boolean,
+  payWithCardToken: Boolean,
+  authCaptureMode: Boolean,
+  allowVoucher: Boolean,
 }
 
 const fawryConfig: FawryConfig = {
   baseUrl: 'https://atfawry.fawrystaging.com/',
   language: FawryLanguages.ENGLISH,
+  signature: '',
   allow3DPayment: true,
   skipReceipt: false,
   skipLogin: true,
   payWithCardToken: true,
   authCaptureMode: false,
+  allowVoucher: true,
   merchantInfo: {
     merchantCode: '+/IAAY2notgLsdUB9VeTFg==',
     merchantSecretCode: '69826c87-963d-47b7-8beb-869f7461fd93',
@@ -50,33 +54,55 @@ const fawryConfig: FawryConfig = {
   },
 };
 
+const eventListeners = [
+  {
+    eventName: FawryCallbacks.FAWRY_EVENT_PAYMENT_COMPLETED,
+    listener: (data: any) => {
+      console.log(FawryCallbacks.FAWRY_EVENT_PAYMENT_COMPLETED, data);
+    },
+  },
+  {
+    eventName: FawryCallbacks.FAWRY_EVENT_ON_SUCCESS,
+    listener: (data: any) => {
+      console.log(FawryCallbacks.FAWRY_EVENT_ON_SUCCESS, data);
+    },
+  },
+  {
+    eventName: FawryCallbacks.FAWRY_EVENT_ON_FAIL,
+    listener: (error: any) => {
+      console.log(FawryCallbacks.FAWRY_EVENT_ON_FAIL, error);
+    },
+  },
+  {
+    eventName: FawryCallbacks.FAWRY_EVENT_CardManager_FAIL,
+    listener: (error: any) => {
+      console.log(FawryCallbacks.FAWRY_EVENT_CardManager_FAIL, error);
+    },
+  },
+];
+
+const attachEventListeners = () => {
+  eventListeners.forEach(eventListener => {
+    const { eventName, listener } = eventListener;
+    FawryCallbacks.FawryEmitter.addListener(eventName, listener);
+  });
+};
+
+const detachEventListeners = () => {
+  eventListeners.forEach(eventListener => {
+    const { eventName, listener } = eventListener;
+    FawryCallbacks.FawryEmitter.removeAllListeners(eventName);
+  });
+};
+
 export default function App() {
   useEffect(() => {
-    FawryCallbacks.FawryEmitter.addListener(
-      FawryCallbacks.EVENT_PAYMENT_COMPLETED,
-      data => {
-        console.log(FawryCallbacks.EVENT_PAYMENT_COMPLETED, data);
-      },
-    );
-    FawryCallbacks.FawryEmitter.addListener(
-      FawryCallbacks.EVENT_ON_SUCCESS,
-      data => {
-        console.log(FawryCallbacks.EVENT_ON_SUCCESS, data);
-      },
-    );
-    FawryCallbacks.FawryEmitter.addListener(
-      FawryCallbacks.EVENT_ON_FAIL,
-      error => {
-        console.log(FawryCallbacks.EVENT_ON_FAIL, error);
-      },
-    );
-    FawryCallbacks.FawryEmitter.addListener(
-      FawryCallbacks.EVENT_CardManager_FAIL,
-      error => {
-        console.log(FawryCallbacks.EVENT_CardManager_FAIL, error);
-      },
-    );
+    attachEventListeners();
+
+    return detachEventListeners;
   }, []);
+  
+  
 
   const handlePayments = () => {
     const billItems: BillItems[] = [
@@ -111,6 +137,8 @@ export default function App() {
       fawryConfig.skipLogin,
       fawryConfig.payWithCardToken,
       fawryConfig.authCaptureMode,
+      fawryConfig.allowVoucher,
+      fawryConfig.signature
     );
   };
 
@@ -123,11 +151,8 @@ export default function App() {
     );
   };
 
-  const colorScheme = useColorScheme();
-  const isDarkMode = colorScheme === 'dark';
-
   return (
-    <View style={[styles.container, isDarkMode && styles.darkContainer]}>
+    <View style={styles.container}>
       <TouchableOpacity style={styles.button} onPress={handlePayments}>
         <Text style={styles.buttonText}>Checkout / Pay</Text>
       </TouchableOpacity>
@@ -143,10 +168,6 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#F9F9F9',
-  },
-  darkContainer: {
-    backgroundColor: '#1A1A1A',
   },
   button: {
     backgroundColor: '#007AFF',

@@ -103,13 +103,13 @@ android {
     }
 }
 
-repositories {
-    google()
-    mavenCentral()
-    maven { url "https://nexus.mobile.fawry.io/repository/maven-releases/" }
-    maven { url "https://maven.google.com" }
-    jcenter()
-}
+    repositories {
+        google()
+        mavenCentral()
+        maven { url "https://nexus.mobile.fawry.io/repository/maven-releases/" }
+        maven { url "https://maven.google.com" }
+                jcenter()
+    }
 
 dependencies {
     // The version of react-native is set by the React Native Gradle Plugin

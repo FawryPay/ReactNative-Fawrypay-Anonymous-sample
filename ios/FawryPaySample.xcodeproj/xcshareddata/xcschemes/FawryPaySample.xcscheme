@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "FawryPaySample.app"
-               BlueprintName = "FawryPaySample"
-               ReferencedContainer = "container:FawryPaySample.xcodeproj">
+               BuildableName = "FawrypaySample.app"
+               BlueprintName = "FawrypaySample"
+               ReferencedContainer = "container:FawrypaySample.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "FawryPaySampleTests.xctest"
-               BlueprintName = "FawryPaySampleTests"
-               ReferencedContainer = "container:FawryPaySample.xcodeproj">
+               BuildableName = "FawrypaySampleTests.xctest"
+               BlueprintName = "FawrypaySampleTests"
+               ReferencedContainer = "container:FawrypaySample.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "FawryPaySample.app"
-            BlueprintName = "FawryPaySample"
-            ReferencedContainer = "container:FawryPaySample.xcodeproj">
+            BuildableName = "FawrypaySample.app"
+            BlueprintName = "FawrypaySample"
+            ReferencedContainer = "container:FawrypaySample.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "FawryPaySample.app"
-            BlueprintName = "FawryPaySample"
-            ReferencedContainer = "container:FawryPaySample.xcodeproj">
+            BuildableName = "FawrypaySample.app"
+            BlueprintName = "FawrypaySample"
+            ReferencedContainer = "container:FawrypaySample.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

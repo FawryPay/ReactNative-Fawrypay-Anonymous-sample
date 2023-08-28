@@ -37,7 +37,7 @@ Before using the FawryPay SDK, you need to have a FawryPay account. If you don't
 In your React Native project, import the necessary components from the FawryPay SDK and set up your merchant and customer information:
 
 ```javascript
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import {
   TouchableOpacity,
   Text,
@@ -111,7 +111,7 @@ const handlePayments = () => {
     fawryConfig.skipReceipt,
     fawryConfig.skipLogin,
     fawryConfig.payWithCardToken,
-    fawryConfig.authCaptureMode,
+    fawryConfig.authCaptureMode
   );
 };
 
@@ -131,7 +131,7 @@ const handleCardsManager = () => {
     fawryConfig.baseUrl,
     fawryConfig.language,
     fawryConfig.merchantInfo,
-    fawryConfig.customerInfo,
+    fawryConfig.customerInfo
   );
 };
 
@@ -149,27 +149,27 @@ React.useEffect(() => {
   // Set up event listeners for payment and card manager status
   FawryCallbacks.FawryEmitter.addListener(
     FawryCallbacks.EVENT_PAYMENT_COMPLETED,
-    data => {
+    (data) => {
       console.log(FawryCallbacks.EVENT_PAYMENT_COMPLETED, data);
-    },
+    }
   );
   FawryCallbacks.FawryEmitter.addListener(
     FawryCallbacks.EVENT_ON_SUCCESS,
-    data => {
+    (data) => {
       console.log(FawryCallbacks.EVENT_ON_SUCCESS, data);
-    },
+    }
   );
   FawryCallbacks.FawryEmitter.addListener(
     FawryCallbacks.EVENT_ON_FAIL,
-    error => {
+    (error) => {
       console.log(FawryCallbacks.EVENT_ON_FAIL, error);
-    },
+    }
   );
   FawryCallbacks.FawryEmitter.addListener(
     FawryCallbacks.EVENT_CardManager_FAIL,
-    error => {
+    (error) => {
       console.log(FawryCallbacks.EVENT_CardManager_FAIL, error);
-    },
+    }
   );
 }, []);
 
@@ -180,21 +180,9 @@ React.useEffect(() => {
 
 ### Android
 
-**Step 1: Update Gradle Version**
-
-1. Open the `gradle-wrapper.properties` file located in the `android/gradle/wrapper` directory of your project.
-
-2. Look for the `distributionUrl` property and change its value to match this Gradle version:
-
-```
-distributionUrl=https\://services.gradle.org/distributions/gradle-7.5.1-all.zip
-```
-
-**Step 2: Modify `build.gradle` in Project Root**
-
 1. Open the `build.gradle` file located in the root of your Android project (named `android/build.gradle`).
 
-2. Locate the `repositories` block and add the required repositories to it. Your `build.gradle` should look like this:
+2. Find the `repositories` block and add the required repositories to it. Your `build.gradle` should look like this:
 
 ```gradle
 repositories {
@@ -206,11 +194,9 @@ repositories {
 }
 ```
 
-**Step 3: Modify `build.gradle` in App Module**
+3. Now, open the `build.gradle` file for your app module (named `android/app/build.gradle`).
 
-1. Now, open the `build.gradle` file for your app module (named `android/app/build.gradle`).
-
-2. Ensure that the `repositories` block is also present in this file with the same content as the project root `build.gradle`.
+4. Make sure the `repositories` block is also present in this file with the same content:
 
 ```gradle
 repositories {
@@ -222,29 +208,13 @@ repositories {
 }
 ```
 
-**Step 4: Save Changes**
-
-Save the changes to both `build.gradle` files.
+5. Save the changes to both `build.gradle` files.
 
 With these changes, your Android project will be able to resolve dependencies from the specified repositories. You can now proceed with the installation and usage of the `@fawry_pay/rn-fawry-pay-sdk` package in your React Native application.
 
 ### iOS
 
 **IMPORTANT: The iOS integration is currently not available in this version. It will be added in a future update.**
-
-### React Native Version
-
-Please note that using the Expo framework to create your React Native project is not recommended for integrating the FawryPay React Native SDK. The Expo framework imposes certain restrictions and may not be compatible with the native modules used by the SDK. Therefore, it is advised to create a regular React Native project without using Expo.
-
-To create a React Native project without Expo, you can use the React Native CLI by running the following command:
-
-```bash
-npx react-native init YourProjectName
-```
-
-Replace `YourProjectName` with the desired name for your project.
-
-By following this approach, you can ensure a smooth integration with the FawryPay SDK and leverage its full functionality within your React Native application. If you encounter any issues during the integration process, please refer to the provided documentation or reach out to the FawryPay support team for assistance.
 
 ---
 

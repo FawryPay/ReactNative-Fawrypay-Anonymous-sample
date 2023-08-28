@@ -7,13 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		00E356F31AD99517003FC87E /* FawryPaySampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* FawryPaySampleTests.m */; };
+		00E356F31AD99517003FC87E /* FawrypaySampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* FawrypaySampleTests.m */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		23310F181146141479749EF9 /* Pods_FawryPaySample_FawryPaySampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29F7B15DB629E5AFF5E25B24 /* Pods_FawryPaySample_FawryPaySampleTests.framework */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		EDCC880CD8835D591DCD5D0C /* Pods_FawryPaySample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E0F1CC48FF51B23AB6C522C /* Pods_FawryPaySample.framework */; };
+		A444B46D7A4FE7AD76F2E726 /* Pods_FawrypaySample_FawrypaySampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72B9BBF84A7E2A34C3E2A608 /* Pods_FawrypaySample_FawrypaySampleTests.framework */; };
+		B8F46B489C43E643374D689F /* Pods_FawrypaySample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B4002062944D8E7AA09CDF9 /* Pods_FawrypaySample.framework */; };
+		F7ECD9022A9B7F290027E9EB /* Style.plist in Resources */ = {isa = PBXBuildFile; fileRef = F7ECD9012A9B7F290027E9EB /* Style.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -22,29 +23,29 @@
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
-			remoteInfo = FawryPaySample;
+			remoteInfo = FawrypaySample;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		00E356EE1AD99517003FC87E /* FawryPaySampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FawryPaySampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		00E356EE1AD99517003FC87E /* FawrypaySampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FawrypaySampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		00E356F21AD99517003FC87E /* FawryPaySampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FawryPaySampleTests.m; sourceTree = "<group>"; };
-		11EEE7922A9918420094394E /* FawryPaySDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = FawryPaySDK.xcframework; path = Pods/FawryPaySDK/FawryPaySDK.xcframework; sourceTree = "<group>"; };
-		13B07F961A680F5B00A75B9A /* FawryPaySample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FawryPaySample.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = FawryPaySample/AppDelegate.h; sourceTree = "<group>"; };
-		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = FawryPaySample/AppDelegate.mm; sourceTree = "<group>"; };
-		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = FawryPaySample/Images.xcassets; sourceTree = "<group>"; };
-		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = FawryPaySample/Info.plist; sourceTree = "<group>"; };
-		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = FawryPaySample/main.m; sourceTree = "<group>"; };
-		29F7B15DB629E5AFF5E25B24 /* Pods_FawryPaySample_FawryPaySampleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FawryPaySample_FawryPaySampleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		527EB694C41E393A2272277E /* Pods-FawryPaySample-FawryPaySampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FawryPaySample-FawryPaySampleTests.release.xcconfig"; path = "Target Support Files/Pods-FawryPaySample-FawryPaySampleTests/Pods-FawryPaySample-FawryPaySampleTests.release.xcconfig"; sourceTree = "<group>"; };
-		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = FawryPaySample/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		8E0F1CC48FF51B23AB6C522C /* Pods_FawryPaySample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FawryPaySample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		950FB26B14C8C6CF17F4B82D /* Pods-FawryPaySample-FawryPaySampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FawryPaySample-FawryPaySampleTests.debug.xcconfig"; path = "Target Support Files/Pods-FawryPaySample-FawryPaySampleTests/Pods-FawryPaySample-FawryPaySampleTests.debug.xcconfig"; sourceTree = "<group>"; };
-		95AAECDFEDCA7C5D37219C2E /* Pods-FawryPaySample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FawryPaySample.debug.xcconfig"; path = "Target Support Files/Pods-FawryPaySample/Pods-FawryPaySample.debug.xcconfig"; sourceTree = "<group>"; };
+		00E356F21AD99517003FC87E /* FawrypaySampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FawrypaySampleTests.m; sourceTree = "<group>"; };
+		13B07F961A680F5B00A75B9A /* FawrypaySample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FawrypaySample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = FawrypaySample/AppDelegate.h; sourceTree = "<group>"; };
+		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = FawrypaySample/AppDelegate.mm; sourceTree = "<group>"; };
+		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = FawrypaySample/Images.xcassets; sourceTree = "<group>"; };
+		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = FawrypaySample/Info.plist; sourceTree = "<group>"; };
+		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = FawrypaySample/main.m; sourceTree = "<group>"; };
+		3B4392A12AC88292D35C810B /* Pods-FawrypaySample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FawrypaySample.debug.xcconfig"; path = "Target Support Files/Pods-FawrypaySample/Pods-FawrypaySample.debug.xcconfig"; sourceTree = "<group>"; };
+		5709B34CF0A7D63546082F79 /* Pods-FawrypaySample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FawrypaySample.release.xcconfig"; path = "Target Support Files/Pods-FawrypaySample/Pods-FawrypaySample.release.xcconfig"; sourceTree = "<group>"; };
+		5B7EB9410499542E8C5724F5 /* Pods-FawrypaySample-FawrypaySampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FawrypaySample-FawrypaySampleTests.debug.xcconfig"; path = "Target Support Files/Pods-FawrypaySample-FawrypaySampleTests/Pods-FawrypaySample-FawrypaySampleTests.debug.xcconfig"; sourceTree = "<group>"; };
+		72B9BBF84A7E2A34C3E2A608 /* Pods_FawrypaySample_FawrypaySampleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FawrypaySample_FawrypaySampleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = FawrypaySample/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		89C6BE57DB24E9ADA2F236DE /* Pods-FawrypaySample-FawrypaySampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FawrypaySample-FawrypaySampleTests.release.xcconfig"; path = "Target Support Files/Pods-FawrypaySample-FawrypaySampleTests/Pods-FawrypaySample-FawrypaySampleTests.release.xcconfig"; sourceTree = "<group>"; };
+		9B4002062944D8E7AA09CDF9 /* Pods_FawrypaySample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FawrypaySample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		F9C9B18A560EA559C9F392E5 /* Pods-FawryPaySample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FawryPaySample.release.xcconfig"; path = "Target Support Files/Pods-FawryPaySample/Pods-FawryPaySample.release.xcconfig"; sourceTree = "<group>"; };
+		F7ECD9012A9B7F290027E9EB /* Style.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Style.plist; path = FawrypaySample/Style.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				23310F181146141479749EF9 /* Pods_FawryPaySample_FawryPaySampleTests.framework in Frameworks */,
+				A444B46D7A4FE7AD76F2E726 /* Pods_FawrypaySample_FawrypaySampleTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,20 +61,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EDCC880CD8835D591DCD5D0C /* Pods_FawryPaySample.framework in Frameworks */,
+				B8F46B489C43E643374D689F /* Pods_FawrypaySample.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		00E356EF1AD99517003FC87E /* FawryPaySampleTests */ = {
+		00E356EF1AD99517003FC87E /* FawrypaySampleTests */ = {
 			isa = PBXGroup;
 			children = (
-				00E356F21AD99517003FC87E /* FawryPaySampleTests.m */,
+				00E356F21AD99517003FC87E /* FawrypaySampleTests.m */,
 				00E356F01AD99517003FC87E /* Supporting Files */,
 			);
-			path = FawryPaySampleTests;
+			path = FawrypaySampleTests;
 			sourceTree = "<group>";
 		};
 		00E356F01AD99517003FC87E /* Supporting Files */ = {
@@ -84,9 +85,10 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		13B07FAE1A68108700A75B9A /* FawryPaySample */ = {
+		13B07FAE1A68108700A75B9A /* FawrypaySample */ = {
 			isa = PBXGroup;
 			children = (
+				F7ECD9012A9B7F290027E9EB /* Style.plist */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -94,16 +96,15 @@
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
 			);
-			name = FawryPaySample;
+			name = FawrypaySample;
 			sourceTree = "<group>";
 		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				11EEE7922A9918420094394E /* FawryPaySDK.xcframework */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				8E0F1CC48FF51B23AB6C522C /* Pods_FawryPaySample.framework */,
-				29F7B15DB629E5AFF5E25B24 /* Pods_FawryPaySample_FawryPaySampleTests.framework */,
+				9B4002062944D8E7AA09CDF9 /* Pods_FawrypaySample.framework */,
+				72B9BBF84A7E2A34C3E2A608 /* Pods_FawrypaySample_FawrypaySampleTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -118,9 +119,9 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				13B07FAE1A68108700A75B9A /* FawryPaySample */,
+				13B07FAE1A68108700A75B9A /* FawrypaySample */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
-				00E356EF1AD99517003FC87E /* FawryPaySampleTests */,
+				00E356EF1AD99517003FC87E /* FawrypaySampleTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
@@ -133,8 +134,8 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* FawryPaySample.app */,
-				00E356EE1AD99517003FC87E /* FawryPaySampleTests.xctest */,
+				13B07F961A680F5B00A75B9A /* FawrypaySample.app */,
+				00E356EE1AD99517003FC87E /* FawrypaySampleTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -142,10 +143,10 @@
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				95AAECDFEDCA7C5D37219C2E /* Pods-FawryPaySample.debug.xcconfig */,
-				F9C9B18A560EA559C9F392E5 /* Pods-FawryPaySample.release.xcconfig */,
-				950FB26B14C8C6CF17F4B82D /* Pods-FawryPaySample-FawryPaySampleTests.debug.xcconfig */,
-				527EB694C41E393A2272277E /* Pods-FawryPaySample-FawryPaySampleTests.release.xcconfig */,
+				3B4392A12AC88292D35C810B /* Pods-FawrypaySample.debug.xcconfig */,
+				5709B34CF0A7D63546082F79 /* Pods-FawrypaySample.release.xcconfig */,
+				5B7EB9410499542E8C5724F5 /* Pods-FawrypaySample-FawrypaySampleTests.debug.xcconfig */,
+				89C6BE57DB24E9ADA2F236DE /* Pods-FawrypaySample-FawrypaySampleTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -153,45 +154,45 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		00E356ED1AD99517003FC87E /* FawryPaySampleTests */ = {
+		00E356ED1AD99517003FC87E /* FawrypaySampleTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "FawryPaySampleTests" */;
+			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "FawrypaySampleTests" */;
 			buildPhases = (
-				AA4253A63FD6ECFF94A6455B /* [CP] Check Pods Manifest.lock */,
+				A55EABD7B0C7F3A422A6CC61 /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
-				A4F5D4C9EFD7D25E3FD89130 /* [CP] Embed Pods Frameworks */,
+				C59DA0FBD6956966B86A3779 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				00E356F51AD99517003FC87E /* PBXTargetDependency */,
 			);
-			name = FawryPaySampleTests;
-			productName = FawryPaySampleTests;
-			productReference = 00E356EE1AD99517003FC87E /* FawryPaySampleTests.xctest */;
+			name = FawrypaySampleTests;
+			productName = FawrypaySampleTests;
+			productReference = 00E356EE1AD99517003FC87E /* FawrypaySampleTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		13B07F861A680F5B00A75B9A /* FawryPaySample */ = {
+		13B07F861A680F5B00A75B9A /* FawrypaySample */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "FawryPaySample" */;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "FawrypaySample" */;
 			buildPhases = (
-				68B9BBF7A94BBDF65F8A49AD /* [CP] Check Pods Manifest.lock */,
+				C38B50BA6285516D6DCD4F65 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				FB6BBF6389938259C9389365 /* [CP] Embed Pods Frameworks */,
+				00EEFC60759A1932668264C0 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = FawryPaySample;
-			productName = FawryPaySample;
-			productReference = 13B07F961A680F5B00A75B9A /* FawryPaySample.app */;
+			name = FawrypaySample;
+			productName = FawrypaySample;
+			productReference = 13B07F961A680F5B00A75B9A /* FawrypaySample.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -211,7 +212,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "FawryPaySample" */;
+			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "FawrypaySample" */;
 			compatibilityVersion = "Xcode 12.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -224,8 +225,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				13B07F861A680F5B00A75B9A /* FawryPaySample */,
-				00E356ED1AD99517003FC87E /* FawryPaySampleTests */,
+				13B07F861A680F5B00A75B9A /* FawrypaySample */,
+				00E356ED1AD99517003FC87E /* FawrypaySampleTests */,
 			);
 		};
 /* End PBXProject section */
@@ -243,6 +244,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
+				F7ECD9022A9B7F290027E9EB /* Style.plist in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -266,7 +268,24 @@
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nWITH_ENVIRONMENT=\"../node_modules/react-native/scripts/xcode/with-environment.sh\"\nREACT_NATIVE_XCODE=\"../node_modules/react-native/scripts/react-native-xcode.sh\"\n\n/bin/sh -c \"$WITH_ENVIRONMENT $REACT_NATIVE_XCODE\"\n";
 		};
-		68B9BBF7A94BBDF65F8A49AD /* [CP] Check Pods Manifest.lock */ = {
+		00EEFC60759A1932668264C0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FawrypaySample/Pods-FawrypaySample-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FawrypaySample/Pods-FawrypaySample-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FawrypaySample/Pods-FawrypaySample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A55EABD7B0C7F3A422A6CC61 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -281,31 +300,14 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-FawryPaySample-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-FawrypaySample-FawrypaySampleTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A4F5D4C9EFD7D25E3FD89130 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FawryPaySample-FawryPaySampleTests/Pods-FawryPaySample-FawryPaySampleTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FawryPaySample-FawryPaySampleTests/Pods-FawryPaySample-FawryPaySampleTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FawryPaySample-FawryPaySampleTests/Pods-FawryPaySample-FawryPaySampleTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		AA4253A63FD6ECFF94A6455B /* [CP] Check Pods Manifest.lock */ = {
+		C38B50BA6285516D6DCD4F65 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -320,28 +322,28 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-FawryPaySample-FawryPaySampleTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-FawrypaySample-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		FB6BBF6389938259C9389365 /* [CP] Embed Pods Frameworks */ = {
+		C59DA0FBD6956966B86A3779 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FawryPaySample/Pods-FawryPaySample-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-FawrypaySample-FawrypaySampleTests/Pods-FawrypaySample-FawrypaySampleTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FawryPaySample/Pods-FawryPaySample-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-FawrypaySample-FawrypaySampleTests/Pods-FawrypaySample-FawrypaySampleTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FawryPaySample/Pods-FawryPaySample-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FawrypaySample-FawrypaySampleTests/Pods-FawrypaySample-FawrypaySampleTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FD10A7F022414F080027D42C /* Start Packager */ = {
@@ -370,7 +372,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00E356F31AD99517003FC87E /* FawryPaySampleTests.m in Sources */,
+				00E356F31AD99517003FC87E /* FawrypaySampleTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,7 +390,7 @@
 /* Begin PBXTargetDependency section */
 		00E356F51AD99517003FC87E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 13B07F861A680F5B00A75B9A /* FawryPaySample */;
+			target = 13B07F861A680F5B00A75B9A /* FawrypaySample */;
 			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -396,14 +398,14 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 950FB26B14C8C6CF17F4B82D /* Pods-FawryPaySample-FawryPaySampleTests.debug.xcconfig */;
+			baseConfigurationReference = 5B7EB9410499542E8C5724F5 /* Pods-FawrypaySample-FawrypaySampleTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = FawryPaySampleTests/Info.plist;
+				INFOPLIST_FILE = FawrypaySampleTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -417,17 +419,17 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FawryPaySample.app/FawryPaySample";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FawrypaySample.app/FawrypaySample";
 			};
 			name = Debug;
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 527EB694C41E393A2272277E /* Pods-FawryPaySample-FawryPaySampleTests.release.xcconfig */;
+			baseConfigurationReference = 89C6BE57DB24E9ADA2F236DE /* Pods-FawrypaySample-FawrypaySampleTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
-				INFOPLIST_FILE = FawryPaySampleTests/Info.plist;
+				INFOPLIST_FILE = FawrypaySampleTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -441,19 +443,23 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FawryPaySample.app/FawryPaySample";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FawrypaySample.app/FawrypaySample";
 			};
 			name = Release;
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 95AAECDFEDCA7C5D37219C2E /* Pods-FawryPaySample.debug.xcconfig */;
+			baseConfigurationReference = 3B4392A12AC88292D35C810B /* Pods-FawrypaySample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 25YHMUQYM4;
 				ENABLE_BITCODE = NO;
-				INFOPLIST_FILE = FawryPaySample/Info.plist;
+				INFOPLIST_FILE = FawrypaySample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -464,8 +470,10 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = FawryPaySample;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fawry.RnFawryPayExample;
+				PRODUCT_NAME = FawrypaySample;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = RnFawryPayExample_dev;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -474,12 +482,16 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F9C9B18A560EA559C9F392E5 /* Pods-FawryPaySample.release.xcconfig */;
+			baseConfigurationReference = 5709B34CF0A7D63546082F79 /* Pods-FawrypaySample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				INFOPLIST_FILE = FawryPaySample/Info.plist;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 25YHMUQYM4;
+				INFOPLIST_FILE = FawrypaySample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -490,8 +502,10 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = FawryPaySample;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fawry.RnFawryPayExample;
+				PRODUCT_NAME = FawrypaySample;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = RnFawryPayExample_dist;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -655,7 +669,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "FawryPaySampleTests" */ = {
+		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "FawrypaySampleTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				00E356F61AD99517003FC87E /* Debug */,
@@ -664,7 +678,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "FawryPaySample" */ = {
+		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "FawrypaySample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
@@ -673,7 +687,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "FawryPaySample" */ = {
+		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "FawrypaySample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,
