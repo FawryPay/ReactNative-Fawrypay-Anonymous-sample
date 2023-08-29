@@ -4,6 +4,7 @@ import {
   Text,
   StyleSheet,
   View,
+  Platform,
 } from 'react-native';
 import {
   pay,
@@ -42,8 +43,14 @@ const fawryConfig: FawryConfig = {
   authCaptureMode: false,
   allowVoucher: true,
   merchantInfo: {
-    merchantCode: '+/IAAY2notgLsdUB9VeTFg==',
-    merchantSecretCode: '69826c87-963d-47b7-8beb-869f7461fd93',
+    merchantCode:
+      Platform.OS === 'android'
+        ? '+/IAAY2notgLsdUB9VeTFg=='
+        : '+/IAAY2nothN6tNlekupwA==',
+    merchantSecretCode:
+      Platform.OS === 'android'
+        ? '69826c87-963d-47b7-8beb-869f7461fd93'
+        : '4b815c12-891c-42ab-b8de-45bd6bd02c3d',
     merchantRefNum: uuid.v4().toString(),
   },
   customerInfo: {
