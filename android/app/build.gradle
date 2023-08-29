@@ -73,9 +73,9 @@ android {
 
     compileSdkVersion rootProject.ext.compileSdkVersion
 
-    namespace "com.fawrypaysample"
+    namespace "com.example"
     defaultConfig {
-        applicationId "com.fawrypaysample"
+        applicationId "com.example"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
@@ -102,14 +102,6 @@ android {
         }
     }
 }
-
-    repositories {
-        google()
-        mavenCentral()
-        maven { url "https://nexus.mobile.fawry.io/repository/maven-releases/" }
-        maven { url "https://maven.google.com" }
-                jcenter()
-    }
 
 dependencies {
     // The version of react-native is set by the React Native Gradle Plugin

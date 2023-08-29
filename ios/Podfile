@@ -20,7 +20,7 @@ prepare_react_native_project!
 
 use_frameworks! 
 
-target 'FawrypaySample' do
+target 'example' do
   config = use_native_modules!
 
   # Flags change depending on the env values.
@@ -40,7 +40,7 @@ target 'FawrypaySample' do
     :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
 
-  target 'FawrypaySampleTests' do
+  target 'exampleTests' do
     inherit! :complete
     # Pods for testing
   end

@@ -1,4 +1,4 @@
-package com.fawrypaysample;
+package com.example;
 
 import android.app.Application;
 import com.facebook.react.PackageList;
