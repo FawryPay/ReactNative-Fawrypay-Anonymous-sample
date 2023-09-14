@@ -3,6 +3,7 @@
 Welcome to the FawryPay React Native SDK Sample Guide. This comprehensive guide will walk you through every step of integrating the FawryPay SDK into your React Native application, allowing for seamless payment methods and card management.
 
 ## Table of Contents
+- [Introduction](#introduction)
 - [Installation](#installation)
 - [Getting Started](#getting-started)
   - [Step 1: Create a FawryPay Account](#step-1-create-a-fawrypay-account)
@@ -17,6 +18,11 @@ Welcome to the FawryPay React Native SDK Sample Guide. This comprehensive guide 
 - [Parameters Explained](#parameters-explained)
 - [Sample Project](#sample-project)
 
+## Introduction
+
+The FawryPay React Native SDK provides seamless integration for processing payments and managing cards within your React Native application. This guide will walk you through the steps needed to integrate the SDK into your project.
+
+**Note**: Currently, the FawryPay React Native SDK does not support EXPO projects. Please use Vanilla React Native for integration.
 ## Installation
 
 To get started with the FawryPay SDK, follow these installation steps:
@@ -269,6 +275,8 @@ For iOS integration, ensure that you follow these steps:
 6. In your iOS directory , run the command `pod install`
 
 These changes enable your iOS project to integrate the latest podfile without issues, facilitating the installation and usage of the `@fawry_pay/rn-fawry-pay-sdk` package in your React Native application.
+
+**Important Reminder:** If you're conducting tests on an Apple Silicon Mac, make sure that you're using the iPhone simulator with Rosetta. To do this, follow these steps: Open Xcode, go to `Product > Destination > Destination Architectures > Show Rosetta Destination`, and then select a Rosetta iPhone Simulator for running the application.
 ## Customizing UI Colors
 
 ### Android
