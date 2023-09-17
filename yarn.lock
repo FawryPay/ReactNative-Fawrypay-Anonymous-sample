@@ -1183,10 +1183,10 @@
   resolved "https://registry.npmjs.org/@eslint/js/-/js-8.48.0.tgz"
   integrity sha512-ZSjtmelB7IJfWD2Fvb7+Z+ChTIKWq6kjda95fLcQKNS5aheVHn4IkfgRQE3sIIzTcSLwLcLZUD9UBt+V7+h+Pw==
 
-"@fawry_pay/rn-fawry-pay-sdk@^1.0.13":
-  version "1.0.13"
-  resolved "https://registry.npmjs.org/@fawry_pay/rn-fawry-pay-sdk/-/rn-fawry-pay-sdk-1.0.13.tgz"
-  integrity sha512-BbbVV+ranudYq5YpQXQq4nZ9pO0N/swSEwW71EDTqkoYRhn7NpqrNbnENM2iiRZ17YMG7AYXYwL5SqeA2+LsBA==
+"@fawry_pay/rn-fawry-pay-sdk@^1.0.15":
+  version "1.0.15"
+  resolved "https://registry.npmjs.org/@fawry_pay/rn-fawry-pay-sdk/-/rn-fawry-pay-sdk-1.0.15.tgz"
+  integrity sha512-tp8VjGSAgA5giUi3nHCom6gmCehgGYN1l7pqbcnrdnPFuDVT+iq28Jl9vQ8C7cR9UETWmchotYmUaByQG9kTXA==
 
 "@hapi/hoek@^9.0.0":
   version "9.3.0"
