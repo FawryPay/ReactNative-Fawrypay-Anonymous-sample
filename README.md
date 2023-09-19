@@ -51,83 +51,57 @@ Before utilizing the FawryPay SDK, you must have a FawryPay account. Visit the F
 
 ### Step 2: Initialize the SDK
 
-In your React Native project, import the necessary components and configure the FawryPay SDK with your merchant and customer information:
+In your React Native project, import the necessary components and configure the FawryPay SDK with your items, merchant and customer information:
 
 ```javascript
 import React, { useEffect } from 'react';
-import {
-  TouchableOpacity,
-  Text,
-  StyleSheet,
-  View,
-} from 'react-native';
-import {
-  pay,
-  openCardsManager,
-  MerchantInfo,
-  CustomerInfo,
-  BillItems,
-  FawryCallbacks,
-  FawryLanguages,
-} from '@fawry_pay/rn-fawry-pay-sdk';
+import { TouchableOpacity, Text, StyleSheet, View, Platform } from 'react-native';
+import * as Fawry from '@fawry_pay/rn-fawry-pay-sdk';
 import uuid from 'react-native-uuid';
 
-// Configure FawryPay settings
-const fawryConfig = {
- baseUrl: 'https://atfawry.fawrystaging.com/',
-  language: FawryLanguages.ENGLISH,
+const cartItems : Fawry.BillItems[] = [
+  { itemId: 'item1', description: 'Item 1 Description', quantity: '10', price: '30' },
+  { itemId: 'item2', description: 'Item 2 Description', quantity: '5', price: '20' },
+  { itemId: 'item3', description: 'Item 3 Description', quantity: '1', price: '10' },
+];
+
+const merchant : Fawry.MerchantInfo = {
+  merchantCode: 'YOUR MERCHANT CODE',
+  merchantSecretCode: 'YOUR SECRET CODE',
+  merchantRefNum: uuid.v4().toString(),
+};
+
+const customer : Fawry.CustomerInfo = {
+  customerName: 'Ahmed Kamal',
+  customerMobile: '+1234567890',
+  customerEmail: 'ahmed.kamal@example.com',
+  customerProfileId: '12345',
+};
+
+const fawryConfig : Fawry.FawryLaunchModel = {
+  baseUrl: 'https://atfawry.fawrystaging.com/',
+  lang: Fawry.FawryLanguages.ENGLISH,
   signature: '',
-  allow3DPayment: true,
+  allow3DPayment: false,
   skipReceipt: false,
   skipLogin: true,
   payWithCardToken: true,
   authCaptureMode: false,
   allowVoucher: true,
-  merchantInfo: {
-    merchantCode: 'YOUR MERCHANT CODE',
-    merchantSecretCode: 'YOUR SECRET CODE',
-    merchantRefNum: uuid.v4().toString(),
-  },
-  customerInfo: {
-    customerName: 'Ahmed Kamal',
-    customerMobile: '+1234567890',
-    customerEmail: 'ahmed.kamal@example.com',
-    customerProfileId: '12345',
-  },
+  items: cartItems,
+  merchantInfo: merchant,
+  customerInfo: customer,
 };
-
 // Continue with the code...
 ```
 
 ### Step 3: Present Payment Options
 
-To initiate the payment process, use the `pay` function to open the payment flow. Define your bill items and call the `pay` function with the necessary parameters:
+To initiate the payment process, use the `startPayment` function to open the payment flow.
 
 ```javascript
-// Set up the bill items to be paid
-const billItems: BillItems[] = [
-  {
-    itemId: 'ITEM_ID_1',
-    description: 'ITEM_DESCRIPTION',
-    quantity: 'ITEM_QUANTITY',
-    price: 'ITEM_PRICE',
-  },
-  // Add more items as needed
-];
-
 // Launch the payment flow
-pay(
-  fawryConfig.baseUrl,
-  fawryConfig.language,
-  fawryConfig.merchantInfo,
-  fawryConfig.customerInfo,
-  billItems,
-  fawryConfig.allow3DPayment,
-  fawryConfig.skipReceipt,
-  fawryConfig.skipLogin,
-  fawryConfig.payWithCardToken,
-  fawryConfig.authCaptureMode
-);
+Fawry.startPayment(fawryConfig);
 ```
 
 ### Step 4: Present Card Manager (Optional)
@@ -136,7 +110,7 @@ If you want to allow your users to manage their saved cards, you can use the `op
 
 ```javascript
 // Open the card manager flow
-openCardsManager(
+Fawry.openCardsManager(
   fawryConfig.baseUrl,
   fawryConfig.language,
   fawryConfig.merchantInfo,
@@ -151,47 +125,19 @@ The FawryPay SDK provides event listeners that you can use to receive payment an
 ```javascript
 // Define event listeners for payment and card manager events
 const eventListeners = [
-  {
-    eventName: FawryCallbacks.FAWRY_EVENT_PAYMENT_COMPLETED,
-    listener: (data: any) => {
-      console.log(FawryCallbacks.FAWRY_EVENT_PAYMENT_COMPLETED, data);
-    },
-  },
-  {
-    eventName: FawryCallbacks.FAWRY_EVENT_ON_SUCCESS,
-    listener: (data: any) => {
-      console.log(FawryCallbacks.FAWRY_EVENT_ON_SUCCESS, data);
-    },
-  },
-  {
-    eventName: FawryCallbacks.FAWRY_EVENT_ON_FAIL,
-    listener: (error: any) => {
-      console.log(FawryCallbacks.FAWRY_EVENT_ON_FAIL, error);
-    },
-  },
-  {
-    eventName: FawryCallbacks.FAWRY_EVENT_CardManager_FAIL,
-    listener: (error: any) => {
-      console.log(FawryCallbacks.FAWRY_EVENT_CardManager_FAIL, error);
-    },
-  },
+  { eventName: Fawry.FawryCallbacks.FAWRY_EVENT_PAYMENT_COMPLETED, listener: (data: any) => console.log(Fawry.FawryCallbacks.FAWRY_EVENT_PAYMENT_COMPLETED, data) },
+  { eventName: Fawry.FawryCallbacks.FAWRY_EVENT_ON_SUCCESS, listener: (data: any) => console.log(Fawry.FawryCallbacks.FAWRY_EVENT_ON_SUCCESS, data) },
+  { eventName: Fawry.FawryCallbacks.FAWRY_EVENT_ON_FAIL, listener: (error: any) => console.log(Fawry.FawryCallbacks.FAWRY_EVENT_ON_FAIL, error) },
+  { eventName: Fawry.FawryCallbacks.FAWRY_EVENT_CardManager_FAIL, listener: (error: any) => console.log(Fawry.FawryCallbacks.FAWRY_EVENT_CardManager_FAIL, error) },
 ];
 
 // Attach event listeners
-const attachEventListeners = () => {
-  eventListeners.forEach(eventListener => {
-    const { eventName, listener } = eventListener;
-    FawryCallbacks.FawryEmitter.addListener(eventName, listener);
-  });
-};
+const attachEventListeners = () => eventListeners.forEach(({ eventName, listener }) => Fawry.FawryCallbacks.FawryEmitter.addListener(eventName, listener));
+
 
 // Detach event listeners when the component unmounts
-const detachEventListeners = () => {
-  eventListeners.forEach(eventListener => {
-    const { eventName } = eventListener;
-    FawryCallbacks.FawryEmitter.removeAllListeners(eventName);
-  });
-};
+const detachEventListeners = () => eventListeners.forEach(({ eventName }) => Fawry.FawryCallbacks.FawryEmitter.removeAllListeners(eventName));
+
 
 useEffect(() => {
   attachEventListeners();

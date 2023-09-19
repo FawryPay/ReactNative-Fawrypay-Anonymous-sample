@@ -1183,10 +1183,12 @@
   resolved "https://registry.npmjs.org/@eslint/js/-/js-8.48.0.tgz"
   integrity sha512-ZSjtmelB7IJfWD2Fvb7+Z+ChTIKWq6kjda95fLcQKNS5aheVHn4IkfgRQE3sIIzTcSLwLcLZUD9UBt+V7+h+Pw==
 
-"@fawry_pay/rn-fawry-pay-sdk@^1.0.15":
-  version "1.0.15"
-  resolved "https://registry.npmjs.org/@fawry_pay/rn-fawry-pay-sdk/-/rn-fawry-pay-sdk-1.0.15.tgz"
-  integrity sha512-tp8VjGSAgA5giUi3nHCom6gmCehgGYN1l7pqbcnrdnPFuDVT+iq28Jl9vQ8C7cR9UETWmchotYmUaByQG9kTXA==
+"@fawry_pay/rn-fawry-pay-sdk@^1.0.16":
+  version "1.0.16"
+  resolved "https://registry.npmjs.org/@fawry_pay/rn-fawry-pay-sdk/-/rn-fawry-pay-sdk-1.0.16.tgz"
+  integrity sha512-VGE/CL2iEn9f1bXmkjmKK+gvnpmn4/uGSi+zVmc9PM7IIO4usEbkXQKSZ2ZLheNEkQGt8lyAuy3LxmanZA1PqQ==
+  dependencies:
+    react-native-uuid "^2.0.1"
 
 "@hapi/hoek@^9.0.0":
   version "9.3.0"
