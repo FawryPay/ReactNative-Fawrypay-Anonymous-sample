@@ -2,7 +2,7 @@ PODS:
   - Alamofire (5.8.0)
   - boost (1.76.0)
   - DoubleConversion (1.1.6)
-  - FawryPaySDK (0.1.19):
+  - FawryPaySDK-Testing (0.1.20):
     - Alamofire
     - IQKeyboardManagerSwift (~> 6.5.11)
     - MBRadioButton (~> 1.4)
@@ -397,8 +397,8 @@ PODS:
     - React-jsi (= 0.72.4)
     - React-logger (= 0.72.4)
     - React-perflogger (= 0.72.4)
-  - rn-fawry-pay-sdk (1.0.15):
-    - FawryPaySDK
+  - rn-fawry-pay-sdk (1.0.17):
+    - FawryPaySDK-Testing
     - React-Core
   - RxSwift (6.5.0)
   - SDWebImage (5.15.8):
@@ -455,7 +455,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
-    - FawryPaySDK
+    - FawryPaySDK-Testing
     - fmt
     - IQKeyboardManagerSwift
     - MBRadioButton
@@ -548,7 +548,7 @@ SPEC CHECKSUMS:
   Alamofire: 0e92e751b3e9e66d7982db43919d01f313b8eb91
   boost: 57d2868c099736d80fcd648bf211b4431e51a558
   DoubleConversion: 5189b271737e1565bdce30deb4a08d647e3f5f54
-  FawryPaySDK: fb9ec11d3690e983434368da694868e6cb8a2f34
+  FawryPaySDK-Testing: 9c8476d9f736bdd902e86b242a1b52df2b72f133
   FBLazyVector: 5d4a3b7f411219a45a6d952f77d2c0a6c9989da5
   FBReactNativeSpec: 3fc2d478e1c4b08276f9dd9128f80ec6d5d85c1f
   fmt: ff9d55029c625d3757ed641535fd4a75fedc7ce9
@@ -564,13 +564,13 @@ SPEC CHECKSUMS:
   React-Core: 4572f4cf5f8386b07dfabda5f436ee30dbf66784
   React-CoreModules: 621243df8863055ff30f3bb2ff71573ffa7b16c8
   React-cxxreact: 9f0bd765bbffbd2038936d1f0ba1c80ea7649e28
-  React-debug: 73766da7b7e486bb6268170ae95391267bd9e141
+  React-debug: 1b7d5e0eca2a9a97f4cf6ac12b91abb09bd66f67
   React-jsc: 844ccd35b8dbd105aa0430b658611a43f10ba8a5
   React-jsi: 8c012b3699d7427e96866dd3a539ca9611fa2546
   React-jsiexecutor: bc8a9ad812a2c88b3a41c08b5f4b3ed32d6d4766
   React-jsinspector: aaed4cf551c4a1c98092436518c2d267b13a673f
   React-logger: da1ebe05ae06eb6db4b162202faeafac4b435e77
-  React-NativeModulesApple: 24a79e3b2c642deef0cdaa03c0f5fae1b54baa6c
+  React-NativeModulesApple: 17f5140928fdf32a358a85109f0950d51d290f2f
   React-perflogger: 496a1a3dc6737f964107cb3ddae7f9e265ddda58
   React-RCTActionSheet: 02904b932b50e680f4e26e7a686b33ebf7ef3c00
   React-RCTAnimation: e44fe5053708c5be762943087c78dc5a6a3c645c
@@ -584,10 +584,10 @@ SPEC CHECKSUMS:
   React-RCTVibration: 35eec7201c8ffdaccdd908a5ec874b7055f975f3
   React-rncore: 46133d523155fc84572338bd6a7c461c1d873efc
   React-runtimeexecutor: d465ba0c47ef3ed8281143f59605cacc2244d5c7
-  React-runtimescheduler: 5c79a39d98f6ecead7362714ee9b5916b6b0c9ae
-  React-utils: 9c1834395c7b66903d8fc856847de1553376636a
-  ReactCommon: d5d62971334b5b1b7e28578602cebd407825bd5b
-  rn-fawry-pay-sdk: 2d9377ee01057a9e2b8527787349a7a44d4e0494
+  React-runtimescheduler: b72d9818b7bbb3c0289341dca03768c87db78054
+  React-utils: 09f83e3515fd6d3afafa3db06b91d11747c7f1ad
+  ReactCommon: 6770a8a7ea62eb6ef61421934e19789fd102ba9e
+  rn-fawry-pay-sdk: ac7a8af11272f219b2ca27a891a5d5abc9b743ed
   RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
   SDWebImage: cb032eba469c54e0000e78bcb0a13cdde0a52798
   SocketRocket: f32cd54efbe0f095c4d7594881e52619cfe80b17
