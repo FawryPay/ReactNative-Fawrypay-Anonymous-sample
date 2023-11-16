@@ -1,5 +1,5 @@
-import React, {useEffect} from 'react';
-import {TouchableOpacity, Text, StyleSheet, View, Platform} from 'react-native';
+import React, { useEffect } from 'react';
+import { TouchableOpacity, Text, StyleSheet, View, Platform } from 'react-native';
 import * as Fawry from '@fawry_pay/rn-fawry-pay-sdk';
 import uuid from 'react-native-uuid';
 
@@ -82,29 +82,27 @@ const eventListeners = [
 ];
 
 const attachEventListeners = () =>
-  eventListeners.forEach(({eventName, listener}) =>
+  eventListeners.forEach(({ eventName, listener }) =>
     Fawry.FawryCallbacks.FawryEmitter.addListener(eventName, listener),
   );
 
 const detachEventListeners = () =>
-  eventListeners.forEach(({eventName}) =>
+  eventListeners.forEach(({ eventName }) =>
     Fawry.FawryCallbacks.FawryEmitter.removeAllListeners(eventName),
   );
 
-export default function App() {
+const App = () => {
   useEffect(() => {
     attachEventListeners();
 
     return detachEventListeners;
   }, []);
 
-  const platformText = Platform.OS === 'android' ? 'Android' : 'iOS';
-
   const handlePayments = () => {
-    merchant.merchantRefNum = uuid.v4().toString();
+    const updatedMerchant = { ...merchant, merchantRefNum: uuid.v4().toString() };
     Fawry.startPayment({
       ...fawryConfig,
-      merchantInfo: {...merchant},
+      merchantInfo: updatedMerchant,
     });
   };
 
@@ -116,33 +114,35 @@ export default function App() {
       fawryConfig.customerInfo,
     );
 
-  return (
-    <View style={styles.container}>
-      <Text style={styles.platformText}>{platformText}</Text>
-      <TouchableOpacity style={styles.button} onPress={handlePayments}>
-        <Text style={styles.buttonText}>Start Payments</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.button} onPress={handleCardsManager}>
-        <Text style={styles.buttonText}>Manage Cards</Text>
-      </TouchableOpacity>
-    </View>
-  );
-}
+    return (
+      <View style={styles.container}>
+        <TouchableOpacity style={styles.button} onPress={handlePayments}>
+          <Text style={styles.buttonText}>Start Payment</Text>
+        </TouchableOpacity>
+  
+        <TouchableOpacity style={styles.button} onPress={handleCardsManager}>
+          <Text style={styles.buttonText}>Manage Cards</Text>
+        </TouchableOpacity>
+      </View>
+    );
+  };
+  
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    button: {
+      backgroundColor: '#016891',
+      padding: 15,
+      margin: 10,
+      borderRadius: 20,
+    },
+    buttonText: {
+      color: '#fff',
+      fontSize: 18,
+    },
+  });
 
-const styles = StyleSheet.create({
-  container: {flex: 1, alignItems: 'center', justifyContent: 'center'},
-  platformText: {fontSize: 20, fontWeight: 'bold', marginBottom: 20},
-  button: {
-    backgroundColor: '#007AFF',
-    padding: 10,
-    paddingHorizontal: 20,
-    borderRadius: 25,
-    marginBottom: 20,
-    shadowColor: '#000',
-    shadowOffset: {width: 0, height: 2},
-    shadowOpacity: 0.3,
-    shadowRadius: 4,
-    elevation: 5,
-  },
-  buttonText: {color: 'white', fontSize: 18, fontWeight: 'bold'},
-});
+export default App;
