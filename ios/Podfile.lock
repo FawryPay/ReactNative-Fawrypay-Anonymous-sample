@@ -397,7 +397,7 @@ PODS:
     - React-jsi (= 0.72.4)
     - React-logger (= 0.72.4)
     - React-perflogger (= 0.72.4)
-  - rn-fawry-pay-sdk (1.0.20):
+  - rn-fawry-pay-sdk (1.0.22):
     - FawryPaySDK
     - React-Core
   - RxSwift (6.5.0)
@@ -587,7 +587,7 @@ SPEC CHECKSUMS:
   React-runtimescheduler: 4db16be45b665af855da5aeb7e2f434de887ba22
   React-utils: e376eff51452e16f295c6facab0d3bc7956d2096
   ReactCommon: e3f8b63e7dfb7590448a4c91aaea28ca040f3a06
-  rn-fawry-pay-sdk: 88364a5552723b0c36c07e9f3714a9f2b78a89be
+  rn-fawry-pay-sdk: ffe46ed818bbb5731ee4f66d98655af558686774
   RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
   SDWebImage: cb032eba469c54e0000e78bcb0a13cdde0a52798
   SocketRocket: f32cd54efbe0f095c4d7594881e52619cfe80b17
@@ -596,4 +596,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 6017acb371f27496d340fb21937e0c8661b419f2
 
-COCOAPODS: 1.12.1
+COCOAPODS: 1.14.3

@@ -167,7 +167,7 @@ For Android integration, follow these additional steps:
        repositories {
          google()
          mavenCentral()
-         maven { url "https://nexus.mobile.fawry.io/repository/maven-releases/" }
+         maven { url "https://nexus.mobile.fawry.io/repository/maven-public/" }
          maven { url "https://maven.google.com" }
          jcenter()
        }
