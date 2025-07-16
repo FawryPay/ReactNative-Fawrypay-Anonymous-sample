@@ -1,30 +1,32 @@
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
-
 buildscript {
     ext {
-        buildToolsVersion = "33.0.0"
-        minSdkVersion = 21
-        compileSdkVersion = 33
-        targetSdkVersion = 33
-
-        // We use NDK 23 which has both M1 support and is the side-by-side NDK version from AGP.
-        ndkVersion = "23.1.7779620"
+        buildToolsVersion = "35.0.0"
+        minSdkVersion = 24
+        compileSdkVersion = 35
+        targetSdkVersion = 35
+        ndkVersion = "27.1.12297006"
+        kotlinVersion = "2.0.21"
     }
-    repositories {
-        google()
-        mavenCentral()
+  repositories {
+    google()
+    mavenCentral()
+    maven {
+      url 'https://nexus.zone10.fawry.io/repository/mobile/'
+      allowInsecureProtocol = true
+      credentials {
+        username "mobile_team"
+        password "6tpr49qUGzc1"
+      }
     }
+//    maven { url 'https:https://nexusmobile.fawrystaging.com:2597///nexus.mobile.fawry.io/repository/maven-public/' }
+//    maven { url "https://maven.google.com" }
+    jcenter()
+  }
     dependencies {
         classpath("com.android.tools.build:gradle")
         classpath("com.facebook.react:react-native-gradle-plugin")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin")
     }
-      allprojects {
-    repositories {
-      google()
-      mavenCentral()
-      maven { url "https://nexus.mobile.fawry.io/repository/maven-public/" }
-      maven { url "https://maven.google.com" }
-      jcenter()
-    }
-  }
 }
+
+apply plugin: "com.facebook.react.rootproject"

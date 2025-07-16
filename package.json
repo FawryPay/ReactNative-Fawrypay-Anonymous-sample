@@ -1,38 +1,35 @@
 {
-  "name": "example",
+  "name": "@fawry_pay/rn-fawry-pay-sdk-example",
   "version": "0.0.1",
   "private": true,
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
-    "lint": "eslint .",
     "start": "react-native start",
-    "test": "jest"
+    "build:android": "react-native build-android --extra-params \"--no-daemon --console=plain -PreactNativeArchitectures=arm64-v8a\"",
+    "build:ios": "react-native build-ios --mode Debug"
   },
   "dependencies": {
-    "@fawry_pay/rn-fawry-pay-sdk": "^1.0.22",
-    "react": "18.2.0",
-    "react-native": "0.72.4",
-    "react-native-uuid": "^2.0.1"
+    "@fawry_pay/rn-fawry-pay-sdk": "1.0.25",
+    "react": "19.0.0",
+    "react-native": "0.79.3",
+    "react-native-nitro-modules": "^0.26.2",
+    "react-native-uuid": "^2.0.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.20.0",
-    "@babel/preset-env": "^7.20.0",
-    "@babel/runtime": "^7.20.0",
-    "@react-native/eslint-config": "^0.72.2",
-    "@react-native/metro-config": "^0.72.11",
-    "@tsconfig/react-native": "^3.0.0",
-    "@types/react": "^18.0.24",
-    "@types/react-test-renderer": "^18.0.0",
-    "babel-jest": "^29.2.1",
-    "eslint": "^8.19.0",
-    "jest": "^29.2.1",
-    "metro-react-native-babel-preset": "0.76.8",
-    "prettier": "^2.4.1",
-    "react-test-renderer": "18.2.0",
-    "typescript": "4.8.4"
+    "@babel/core": "^7.27.4",
+    "@babel/preset-env": "^7.27.2",
+    "@babel/runtime": "^7.27.6",
+    "@react-native-community/cli": "18.0.0",
+    "@react-native-community/cli-platform-android": "18.0.0",
+    "@react-native-community/cli-platform-ios": "18.0.0",
+    "@react-native/babel-preset": "0.79.3",
+    "@react-native/metro-config": "0.79.3",
+    "@react-native/typescript-config": "0.79.3",
+    "@types/react": "^19.1.7",
+    "react-native-builder-bob": "^0.40.11"
   },
   "engines": {
-    "node": ">=16"
+    "node": ">=18"
   }
 }
