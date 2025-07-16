@@ -1,6 +1,6 @@
-# FawryPay React Native SDK Sample Guide
+# FawryPay React Native SDK (Nitro Modules)
 
-Welcome to the FawryPay React Native SDK Sample Guide. This comprehensive guide will walk you through every step of integrating the FawryPay SDK into your React Native application, allowing for seamless payment methods and card management.
+This is the only official FawryPay SDK package for React Native, powered by [Nitro Modules](https://nitro.margelo.com/) for superior performance and seamless native integration.
 
 ## Table of Contents
 - [Introduction](#introduction)
@@ -10,64 +10,86 @@ Welcome to the FawryPay React Native SDK Sample Guide. This comprehensive guide 
   - [Step 2: Initialize the SDK](#step-2-initialize-the-sdk)
   - [Step 3: Present Payment Options](#step-3-present-payment-options)
   - [Step 4: Present Card Manager (Optional)](#step-4-present-card-manager-optional)
-  - [Step 5: Callbacks (Optional)](#step-5-callbacks-optional)
+  - [Step 5: Event Listeners (Recommended)](#step-5-event-listeners-recommended)
 - [Platform-specific Notes](#platform-specific-notes)
   - [Android](#android)
   - [iOS](#ios)
 - [Customizing UI Colors](#customizing-ui-colors)
 - [Parameters Explained](#parameters-explained)
+- [API Reference](#api-reference)
 - [Sample Project](#sample-project)
 
 ## Introduction
 
-The FawryPay React Native SDK provides seamless integration for processing payments and managing cards within your React Native application. This guide will walk you through the steps needed to integrate the SDK into your project.
+The FawryPay React Native SDK provides seamless integration for processing payments and managing cards within your React Native application. Built on Nitro Modules, this SDK offers:
 
-**Note**: Currently, the FawryPay React Native SDK does not support EXPO projects. Please use Vanilla React Native for integration.
+- ⚡ **Superior Performance**: Native module architecture with minimal overhead
+- 🔒 **Secure Payments**: Industry-standard security with 3D Secure support
+- 💳 **Card Management**: Save and manage customer payment methods
+- 🌐 **Multi-language Support**: Arabic and English interfaces
+- 📱 **Cross-platform**: Full iOS and Android support
 
+## Expo Compatibility
+
+**❌ Expo Managed Workflow**: Not supported due to native module requirements
+**✅ Expo Bare Workflow**: Fully supported (equivalent to vanilla React Native)
+**✅ Vanilla React Native**: Fully supported
 
 #### How it works
 ![Fawrypay SDK Explained](https://raw.githubusercontent.com/FawryPay/Android-Fawrypay-Anonymous-sample/master/Docs/4.jpg)
 
 ## Installation
 
-To get started with the FawryPay SDK, follow these installation steps:
+### Prerequisites
+
+- React Native 0.60+
+- iOS 12.0+ / Android API 21+
+- Node.js 16+
 
 ### Step 1: Install the FawryPay SDK
 
-To install the FawryPay SDK, use npm:
-
 ```bash
-npm install @fawry_pay/rn-fawry-pay-sdk --save
+npm install @fawry_pay/rn-fawry-pay-sdk react-native-nitro-modules
 ```
 
-For React Native versions prior to 0.60, link the package using `react-native link`:
+> **Important**: `react-native-nitro-modules` is required as this library relies on [Nitro Modules](https://nitro.margelo.com/).
 
-```bash
-react-native link @fawry_pay/rn-fawry-pay-sdk
-```
+### Step 2: Platform Setup
 
-For React Native versions 0.60 and above, autolinking will handle linking.
+Follow the platform-specific setup instructions below.
 
 ## Getting Started
 
 ### Step 1: Create a FawryPay Account
 
-Before utilizing the FawryPay SDK, you must have a FawryPay account. Visit the FawryPay website to create an account if you don't already have one.
+Before utilizing the FawryPay SDK, you must have a FawryPay merchant account. Visit the [FawryPay website](https://atfawry.com) to create an account if you don't already have one.
 
 ### Step 2: Initialize the SDK
 
-In your React Native project, import the necessary components and configure the FawryPay SDK with your items, merchant and customer information:
+In your React Native project, import the necessary components and configure the FawryPay SDK:
 
-```javascript
-import React, { useEffect } from 'react';
+```typescript
+import React, { useEffect, useRef } from 'react';
 import { TouchableOpacity, Text, StyleSheet, View, Platform } from 'react-native';
-import * as Fawry from '@fawry_pay/rn-fawry-pay-sdk';
+import {
+  startPayment,
+  openCardsManager,
+  addFawryListener,
+  FawryEvents,
+} from '@fawry_pay/rn-fawry-pay-sdk';
+import type { 
+  BillItems, 
+  MerchantInfo, 
+  CustomerInfo, 
+  FawryLaunchModel, 
+  FawryLanguages 
+} from '@fawry_pay/rn-fawry-pay-sdk';
 import uuid from 'react-native-uuid';
 
-const cartItems : Fawry.BillItems[] = [
-  { itemId: 'item1', description: 'Item 1 Description', quantity: '10', price: '30' },
-  { itemId: 'item2', description: 'Item 2 Description', quantity: '5', price: '20' },
-  { itemId: 'item3', description: 'Item 3 Description', quantity: '1', price: '10' },
+const cartItems: BillItems[] = [
+  { itemId: 'item1', description: 'Item 1 Description', quantity: '1', price: '300' },
+  { itemId: 'item2', description: 'Item 2 Description', quantity: '1', price: '200' },
+  { itemId: 'item3', description: 'Item 3 Description', quantity: '1', price: '500' },
 ];
 
 const merchant : Fawry.MerchantInfo = {
@@ -97,59 +119,110 @@ const fawryConfig : Fawry.FawryLaunchModel = {
   merchantInfo: merchant,
   customerInfo: customer,
 };
-// Continue with the code...
 ```
 
 ### Step 3: Present Payment Options
 
-To initiate the payment process, use the `startPayment` function to open the payment flow.
+To initiate the payment process, use the `startPayment` function:
 
-```javascript
-// Launch the payment flow
-Fawry.startPayment(fawryConfig);
+```typescript
+const handlePayment = () => {
+  // Generate new reference number for each transaction
+  const updatedMerchant = { 
+    ...merchant, 
+    merchantRefNum: uuid.v4().toString() 
+  };
+  
+  startPayment({ 
+    ...fawryConfig, 
+    merchantInfo: updatedMerchant 
+  });
+};
 ```
 
 ### Step 4: Present Card Manager (Optional)
 
-If you want to allow your users to manage their saved cards, you can use the `openCardsManager` function:
+Allow users to manage their saved cards:
 
-```javascript
-// Open the card manager flow
-Fawry.openCardsManager(
-  fawryConfig.baseUrl,
-  fawryConfig.language,
-  fawryConfig.merchantInfo,
-  fawryConfig.customerInfo
-);
+```typescript
+const handleCardsManager = () => {
+  openCardsManager(
+    fawryConfig.baseUrl,
+    fawryConfig.lang,
+    fawryConfig.merchantInfo,
+    fawryConfig.customerInfo
+  );
+};
 ```
 
-### Step 5: Callbacks (Optional)
+### Step 5: Event Listeners (Recommended)
 
-The FawryPay SDK provides event listeners that you can use to receive payment and card manager status. Here's how to set up event listeners:
+Set up event listeners to handle payment responses and card manager events:
 
-```javascript
-// Define event listeners for payment and card manager events
-const eventListeners = [
-  { eventName: Fawry.FawryCallbacks.FAWRY_EVENT_PAYMENT_COMPLETED, listener: (data: any) => console.log(Fawry.FawryCallbacks.FAWRY_EVENT_PAYMENT_COMPLETED, data) },
-  { eventName: Fawry.FawryCallbacks.FAWRY_EVENT_ON_SUCCESS, listener: (data: any) => console.log(Fawry.FawryCallbacks.FAWRY_EVENT_ON_SUCCESS, data) },
-  { eventName: Fawry.FawryCallbacks.FAWRY_EVENT_ON_FAIL, listener: (error: any) => console.log(Fawry.FawryCallbacks.FAWRY_EVENT_ON_FAIL, error) },
-  { eventName: Fawry.FawryCallbacks.FAWRY_EVENT_CardManager_FAIL, listener: (error: any) => console.log(Fawry.FawryCallbacks.FAWRY_EVENT_CardManager_FAIL, error) },
-];
+```typescript
+const App = () => {
+  const removeListenerRef = useRef<(() => void) | null>(null);
 
-// Attach event listeners
-const attachEventListeners = () => eventListeners.forEach(({ eventName, listener }) => Fawry.FawryCallbacks.FawryEmitter.addListener(eventName, listener));
+  useEffect(() => {
+    // Setup event listener
+    removeListenerRef.current = addFawryListener((eventName, payload) => {
+      try {
+        const parsed = isValidJson(payload) ? JSON.parse(payload) : payload;
+        
+        switch(eventName) {
+          case FawryEvents.EVENT_PAYMENT_COMPLETED:
+            console.log('Payment completed:', parsed);
+            // Handle successful payment
+            // Navigate to success screen or update UI
+            break;
+            
+          case FawryEvents.EVENT_ON_SUCCESS:
+            console.log('Payment success:', parsed);
+            // Handle general success
+            break;
+            
+          case FawryEvents.EVENT_ON_FAIL:
+            console.log('Payment failed:', parsed);
+            // Handle payment failure
+            // Show error message to user
+            break;
+            
+          case FawryEvents.EVENT_CardManager_FAIL:
+            console.log('Card manager error:', parsed);
+            // Handle card manager errors
+            break;
+            
+          case FawryEvents.EVENT_READY:
+            console.log('SDK Ready');
+            // SDK is initialized and ready
+            break;
+            
+          default:
+            console.log(`Unhandled event: ${eventName}`, parsed);
+        }
+      } catch (e) {
+        console.error(`Event parsing error for ${eventName}:`, e);
+        console.warn(`Raw payload: ${payload}`);
+      }
+    });
 
+    // Cleanup on unmount
+    return () => {
+      removeListenerRef.current?.();
+    };
+  }, []);
 
-// Detach event listeners when the component unmounts
-const detachEventListeners = () => eventListeners.forEach(({ eventName }) => Fawry.FawryCallbacks.FawryEmitter.removeAllListeners(eventName));
+  const isValidJson = (payload: string): boolean => {
+    try {
+      JSON.parse(payload);
+      return true;
+    } catch (e) {
+      return false;
+    }
+  };
 
-
-useEffect(() => {
-  attachEventListeners();
-
-  // Clean up event listeners when the component unmounts
-  return detachEventListeners;
-}, []);
+  // Your component JSX...
+};
 ```
 
 ## Platform-specific Notes
@@ -158,154 +231,213 @@ useEffect(() => {
 
 For Android integration, follow these additional steps:
 
-1. Open the `build.gradle` file located in the root of your Android project (named `android/build.gradle`).
+1. Open `android/build.gradle` and add the FawryPay repository:
 
-2. Find the `buildscript` block and add the following code in it:
+```gradle
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        maven { url "https://nexus.mobile.fawry.io/repository/maven-public/" }
+        maven { url "https://maven.google.com" }
+        jcenter()
+    }
+}
+```
 
-   ```gradle
-   allprojects {
-       repositories {
-         google()
-         mavenCentral()
-         maven { url "https://nexus.mobile.fawry.io/repository/maven-public/" }
-         maven { url "https://maven.google.com" }
-         jcenter()
-       }
-     }
-   ```
+2. Ensure your `android/app/build.gradle` has minimum SDK version 21:
 
-These changes enable your Android project to resolve dependencies from the specified repositories, facilitating the installation and usage of the `@fawry_pay/rn-fawry-pay-sdk` package in your React Native application.
+```gradle
+android {
+    compileSdkVersion 34
+    
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 34
+    }
+}
+```
 
 ### iOS
 
-For iOS integration, ensure that you follow these steps:
+For iOS integration, follow these steps:
 
-1. Open the `Podfile` file located in the root of your iOS project.
-
-2. Delete the following code block:
-
-   ```ruby
-   flipper_config = ENV['NO_FLIPPER'] == "1" ? FlipperConfiguration.disabled : FlipperConfiguration.enabled
-   
-   linkage = ENV['USE_FRAMEWORKS']
-   if linkage != nil
-     Pod::UI.puts "Configuring Pod with #{linkage}ally linked Frameworks".green
-     use_frameworks! :linkage => linkage.to_sym
-   end
-   ```
-
-3. Replace the removed code with:
-
-   ```ruby
-   use_frameworks!
-   ```
-
-4. Disable Hermes Engine by changing:
-
-   ```ruby
-   :hermes_enabled => flags[:hermes_enabled],
-   ```
-
-   to:
-
-   ```ruby
-   :hermes_enabled => false,
-   ```
-
-5. Disable Flipper by changing:
-
-   ```ruby
-   :flipper_configuration => flipper_config,
-   ```
-
-   to:
-
-   ```ruby
-   :flipper_configuration => FlipperConfiguration.disabled,
-   ```
-6. In your iOS directory , run the command `pod install`
-
-**Note for Xcode 15 Users:**
-
-If you are using Xcode 15, it's important to follow these additional steps for proper integration:
-
+#### 1. Update your `Podfile`:
 
 ```ruby
-post_install do |installer|
-  installer.pods_project.targets.each do |target|
-    target.build_configurations.each do |config|
-      config.build_settings['BUILD_LIBRARY_FOR_DISTRIBUTION'] = 'YES'
-      xcconfig_path = config.base_configuration_reference.real_path
-      xcconfig = File.read(xcconfig_path)
-      xcconfig_mod = xcconfig.gsub(/DT_TOOLCHAIN_DIR/, "TOOLCHAIN_DIR")
-      File.open(xcconfig_path, "w") { |file| file << xcconfig_mod }
+platform :ios, '16.6'
+
+ENV['RCT_NEW_ARCH_ENABLED'] = '1'
+
+# Load the custom RCTAppDelegate fix
+require_relative 'fix-rct-delegate.rb'
+
+# Resolve react_native_pods.rb with node
+require Pod::Executable.execute_command('node', ['-p',
+  'require.resolve(
+    "react-native/scripts/react_native_pods.rb",
+    {paths: [process.argv[1]]},
+  )', __dir__]).strip
+
+prepare_react_native_project!
+
+target 'YourAppName' do
+  use_modular_headers!
+  use_frameworks!
+
+  # Add Folly explicitly
+  pod 'RCT-Folly', :podspec => '../node_modules/react-native/third-party-podspecs/RCT-Folly.podspec'
+
+  config = use_native_modules!
+
+  use_react_native!(
+    :path => config[:reactNativePath],
+    :hermes_enabled => true,
+    :fabric_enabled => true,
+    :new_arch_enabled => true,
+    :app_path => "#{Pod::Config.instance.installation_root}/.."
+  )
+
+  # Add FawryPay SDK
+  pod 'FawryPaySDK'
+
+  pre_install do |installer|
+    Pod::Installer::Xcode::TargetValidator.send(:define_method, :verify_no_static_framework_transitive_dependencies) {}
+    installer.pod_targets.each do |pod|
+      if ['React-RCTAppDelegate'].include?(pod.name)
+        def pod.build_type;
+          Pod::BuildType.dynamic_framework
+        end
+      end
     end
   end
-  react_native_post_install(
-    installer,
-    config[:reactNativePath],
-    :mac_catalyst_enabled => false
-  )
-  __apply_Xcode_12_5_M1_post_install_workaround(installer)
+
+  post_install do |installer|
+    react_native_post_install(
+      installer,
+      config[:reactNativePath],
+      :mac_catalyst_enabled => false
+    )
+
+    installer.pods_project.targets.each do |target|
+      target.build_configurations.each do |config|
+        config.build_settings['CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES'] = 'YES'
+        config.build_settings['BUILD_LIBRARY_FOR_DISTRIBUTION'] = 'YES'
+        config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '16.6'
+
+        if target.name.start_with?('React-')
+          config.build_settings['SWIFT_VERSION'] = '5.0'
+          config.build_settings['ALWAYS_SEARCH_USER_PATHS'] = 'NO'
+          config.build_settings['CLANG_CXX_LANGUAGE_STANDARD'] = 'c++20'
+          config.build_settings['OTHER_CPLUSPLUSFLAGS'] = '$(inherited) -DFOLLY_NO_CONFIG -DFOLLY_MOBILE=1 -DFOLLY_USE_LIBCPP=1 -DFOLLY_CFG_NO_COROUTINES=1'
+        end
+
+        if ['React-RCTAppDelegate', 'React-RCTRuntime', 'React-Core'].include?(target.name)
+          config.build_settings['GCC_TREAT_WARNINGS_AS_ERRORS'] = 'NO'
+          config.build_settings['OTHER_CFLAGS'] = '$(inherited) -Wno-error=implicit-function-declaration -Wno-error -Wno-nullability-completeness'
+          config.build_settings['CLANG_WARN_DOCUMENTATION_COMMENTS'] = 'NO'
+        end
+
+        if ['FawryPaySDK'].include?(target.name)
+          config.build_settings['SKIP_INSTALL'] = 'NO'
+          config.build_settings['CODE_SIGNING_ALLOWED'] = 'NO'
+          config.build_settings['SWIFT_COMPILATION_MODE'] = 'wholemodule'
+          config.build_settings['GENERATE_INFOPLIST_FILE'] = 'YES'
+        end
+      end
+    end
+  end
 end
 ```
 
-After adding this code snippet, remember to run `pod update` in your iOS directory to ensure that the changes are properly applied.
+#### 2. Add the `fix-rct-delegate.rb` file:
 
----
+Create a file named `fix-rct-delegate.rb` in the root of your `ios/` directory with:
 
-These changes enable your iOS project to integrate the latest podfile without issues, facilitating the installation and usage of the `@fawry_pay/rn-fawry-pay-sdk` package in your React Native application.
+```ruby
+# fix-rct-delegate.rb
 
-**Important Reminder:** If you're conducting tests on an Apple Silicon Mac, make sure that you're using the iPhone simulator with Rosetta. To do this, follow these steps: Open Xcode, go to `Product > Destination > Destination Architectures > Show Rosetta Destination`, and then select a Rosetta iPhone Simulator for running the application.
+module ReactNativePods
+  class PodspecModifier
+    def modify_react_rct_app_delegate(spec)
+      spec.pod_target_xcconfig ||= {}
+
+      spec.pod_target_xcconfig['GCC_PREPROCESSOR_DEFINITIONS'] = ['$(inherited)', 
+        'RCT_EXTERN_MODULE=RCT_EXTERN',
+        '_LIBCPP_ENABLE_CXX17_REMOVED_FEATURES=1']
+
+      spec.pod_target_xcconfig['OTHER_CFLAGS'] = '$(inherited) -Wno-error -Wno-nullability-completeness -Wno-error=implicit-function-declaration'
+      spec.pod_target_xcconfig['APPLICATION_EXTENSION_API_ONLY'] = 'NO'
+      spec.compiler_flags = '-fno-objc-msgsend-selector-stubs'
+
+      if ENV['RCT_NEW_ARCH_ENABLED'] == '1'
+        spec.dependency 'React-RCTRuntime'
+        spec.dependency 'React-NativeModulesApple'
+        spec.dependency 'ReactCommon'
+      end
+    end
+  end
+end
+```
+
+#### 3. Install iOS dependencies
+
+```bash
+cd ios && pod install
+```
+
+#### ✅ Notes
+
+- This setup assumes React Native New Architecture (Fabric + TurboModules)
+- iOS minimum deployment target is `16.6`
+- Includes manual fixes for `RCTAppDelegate`, Xcode 15, and Swift interop
+- Ensures `FawryPaySDK` links properly with required runtime settings
 
 ## Customizing UI Colors
 
 ### Android
 
-To customize UI colors for Android:
+1. Navigate to `android/app/src/main/res/values/`
+2. Create or edit `colors.xml`:
 
-1. Navigate to `android > app > src > main > res > values`.
-
-2. Create a new file named `colors.xml`.
-
-3. Add color values to `colors.xml`:
-
-   ```xml
-   <?xml version="1.0" encoding="utf-8"?>
-   <resources>
-       <color name="fawry_blue">#6F61C0</color>
-       <color name="fawry_yellow">#A084E8</color>
-   </resources>
-   ```
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="fawry_blue">#6F61C0</color>
+    <color name="fawry_yellow">#A084E8</color>
+</resources>
+```
 
 ### iOS
 
-For iOS UI color customization:
+1. In your iOS project, create `Style.plist`:
 
-1. In your project, navigate to `ios > YourAppNampe`.
-
-2. Create a new file named `Style.plist`.
-
-3. Add color values to `Style.plist`:
-
-   ```xml
-   <?xml version="1.0" encoding="UTF-8"?>
-   <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-   <plist version="1.0">
-   <dict>
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
     <key>primaryColorHex</key>
-    <string>#6F61C0</string> <!-- Set your primary color hex code -->
+    <string>#6F61C0</string>
     <key>secondaryColorHex</key>
-    <string>#A084E8</string> <!-- Set your secondary color hex code -->
+    <string>#A084E8</string>
     <key>tertiaryColorHex</key>
-    <string>#8BE8E5</string> <!-- Set your tertiary color hex code -->
+    <string>#8BE8E5</string>
     <key>headerColorHex</key>
-    <string>#6F61C0</string> <!-- Set your header color hex code -->
-   </dict>
-   </plist>
-   ```
+    <string>#6F61C0</string>
+</dict>
+</plist>
+```
 
-   Then, add the `Style.plist` file to your Xcode project.
+2. Add `Style.plist` to your Xcode project.
+
+
+#### ✅ Notes
+
+- This setup assumes React Native New Architecture (Fabric + TurboModules)
+- iOS minimum deployment target is `16.6`
+- Includes manual fixes for `RCTAppDelegate`, Xcode 15, and Swift interop
+- Ensures `FawryPaySDK` links properly with required runtime settings
 
 ## Parameters Explained
 <br/>CustomerInfo
@@ -349,18 +481,52 @@ For iOS UI color customization:
 | skipLogin               | Boolean                          | optional - default value = true  | to skip login screen in which we take email and mobile   | \-          |
 | authCaptureMode         | Boolean                          | optional - default value = false                                                                                                                                | depends on refund configuration: will be true when refund is enabled and false when refund is disabled                                                                                             | false       |
 | baseUrl          | String       | required | Provided by the support team.Use staging URL for testing and switch for production to go live. | https://atfawry.fawrystaging.com (staging) <br/><br/> https://atfawry.com (production) |     
-| lang       |  String | required | SDK language which will affect SDK's interface languages. | Fawry.FawryLanguages.ENGLISH  |   
+| lang       |  String | required | SDK language which will affect SDK's interface languages. | Fawry.FawryLanguages.ENGLISH  | 
 
+## API Reference
 
-**Notes:**
+### Functions
 
--   **you can pass either signature or secureKey (in this case we will create the signature internally), knowing that if the 2 parameters are passed the secureKey will be ignored and the signature will be used.**
+#### `startPayment(model: FawryLaunchModel): void`
+Initiates the payment flow with the provided configuration.
 
+#### `openCardsManager(baseUrl: string, lang: FawryLanguages, merchantInfo: MerchantInfo, customerInfo: CustomerInfo): void`
+Opens the card management interface for users to manage saved payment methods.
+
+#### `addFawryListener(listener: FawryPayListener): () => void`
+Registers an event listener for payment and card management events. Returns a cleanup function.
+
+### Events
+
+| Event | Description | Payload Type |
+|-------|-------------|--------------|
+| `EVENT_READY` | SDK initialization complete | string |
+| `EVENT_PAYMENT_COMPLETED` | Payment transaction completed | Object |
+| `EVENT_ON_SUCCESS` | Payment succeeded | Object |
+| `EVENT_ON_FAIL` | Payment failed | Object |
+| `EVENT_CardManager_FAIL` | Card manager error | Object |
+| `EVENT_COMPLETION_BLOCK` | Payment initialization | string |
+| `EVENT_PRE_COMPLETION` | Pre-payment setup | string |
+
+### Types
+
+```typescript
+type FawryLanguages = 'ENGLISH' | 'ARABIC';
+type FawryPayListener = (eventName: string, payload: string) => void;
+```
 
 ## Sample Project
 
-For a hands-on demonstration of Fawry SDK integration in a React Native app, explore our GitHub sample project:
+For a complete implementation example, check out our sample project in the `example/` directory of this repository.
 
-[**React Native Fawrypay Anonymous Sample**](https://github.com/FawryPay/ReactNative-Fawrypay-Anonymous-sample)
+## Contributing
 
-Feel free to explore the sample project and leverage the guide to effortlessly integrate the Fawry SDK into your React Native application.
+See the [contributing guide](CONTRIBUTING.md) to learn how to contribute to the repository and the development workflow.
+
+## License
+
+MIT
+
+---
+
+Made with [Nitro Modules](https://nitro.margelo.com/) and [create-react-native-library](https://github.com/callstack/react-native-builder-bob)
