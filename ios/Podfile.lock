@@ -3,18 +3,16 @@ PODS:
   - boost (1.84.0)
   - DoubleConversion (1.1.6)
   - fast_float (6.1.4)
-  - FawryPaySDK (0.1.46):
+  - FawryPaySDK (2.0.2):
     - Alamofire (~> 5.10.2)
-    - IQKeyboardManagerSwift (~> 6.5.11)
-    - RxSwift (~> 6.9.0)
-    - SDWebImage (~> 5.21.0)
+    - IQKeyboardManagerSwift (~> 6.5.16)
   - FBLazyVector (0.79.3)
   - fmt (11.0.2)
   - glog (0.3.5)
   - hermes-engine (0.79.3):
     - hermes-engine/Pre-built (= 0.79.3)
   - hermes-engine/Pre-built (0.79.3)
-  - IQKeyboardManagerSwift (6.5.11)
+  - IQKeyboardManagerSwift (6.5.16)
   - NitroModules (0.26.2):
     - DoubleConversion
     - glog
@@ -1686,13 +1684,13 @@ PODS:
     - React-logger (= 0.79.3)
     - React-perflogger (= 0.79.3)
     - React-utils (= 0.79.3)
-  - RnFawryPaySdk (1.0.25):
+  - RnFawryPaySdk (2.0.0):
     - Alamofire (= 5.10.2)
     - DoubleConversion
-    - FawryPaySDK (= 0.1.46)
+    - FawryPaySDK (= 2.0.2)
     - glog
     - hermes-engine
-    - IQKeyboardManagerSwift (= 6.5.11)
+    - IQKeyboardManagerSwift (= 6.5.16)
     - NitroModules
     - RCT-Folly (= 2024.11.18.00)
     - RCTRequired
@@ -1713,13 +1711,7 @@ PODS:
     - ReactCodegen
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
-    - RxSwift (= 6.9.0)
-    - SDWebImage (= 5.21.0)
     - Yoga
-  - RxSwift (6.9.0)
-  - SDWebImage (5.21.0):
-    - SDWebImage/Core (= 5.21.0)
-  - SDWebImage/Core (5.21.0)
   - SocketRocket (0.7.1)
   - Yoga (0.0.0)
 
@@ -1804,8 +1796,6 @@ SPEC REPOS:
     - Alamofire
     - FawryPaySDK
     - IQKeyboardManagerSwift
-    - RxSwift
-    - SDWebImage
     - SocketRocket
 
 EXTERNAL SOURCES:
@@ -1960,12 +1950,12 @@ SPEC CHECKSUMS:
   boost: 7e761d76ca2ce687f7cc98e698152abd03a18f90
   DoubleConversion: cb417026b2400c8f53ae97020b2be961b59470cb
   fast_float: 06eeec4fe712a76acc9376682e4808b05ce978b6
-  FawryPaySDK: 01df8f950a772194a487bb7110429850bc7ca1e3
+  FawryPaySDK: 2c9d9eb8852be03683286915976fcde04bc86ba4
   FBLazyVector: a62a7a5760929b6265e27bc01ab7598dde93ebd3
   fmt: a40bb5bd0294ea969aaaba240a927bd33d878cdd
   glog: 5683914934d5b6e4240e497e0f4a3b42d1854183
   hermes-engine: 94ed01537bdeccaab1adbf94b040d115d6fa1a7f
-  IQKeyboardManagerSwift: c7955c0bdbf7b2eb29bb7daaa44e3d90f55a9a85
+  IQKeyboardManagerSwift: 12d89768845bb77b55cc092ecc2b1f9370f06b76
   NitroModules: faec300c5f7074ec6d3255b2f6aedb94ac8a2d3d
   RCT-Folly: 36fe2295e44b10d831836cc0d1daec5f8abcf809
   RCTDeprecation: c3e3f5b4ea83e7ff3bc86ce09e2a54b7affd687d
@@ -2029,9 +2019,7 @@ SPEC CHECKSUMS:
   ReactAppDependencyProvider: 552391af67c115d8ee20f9359711e7821145cd96
   ReactCodegen: 5a3b071aec923e67260550b3f65329f844d691fa
   ReactCommon: 1dce2374d9dc2cdf634244f1584513b606512750
-  RnFawryPaySdk: 37fbdf1d1a9ed8c588434c389e021c43ce4bd70e
-  RxSwift: 31649ace6aceeb422e16ff71c60804f9c3281ed9
-  SDWebImage: f84b0feeb08d2d11e6a9b843cb06d75ebf5b8868
+  RnFawryPaySdk: 3adcbbcae11b15de5a88c98bc751415797f5da41
   SocketRocket: d4aabe649be1e368d1318fdf28a022d714d65748
   Yoga: 005c3a41433547761a9ee4beb0a92a08064d82d0
 

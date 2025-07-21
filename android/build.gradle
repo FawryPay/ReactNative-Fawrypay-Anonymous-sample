@@ -11,12 +11,8 @@ buildscript {
     google()
     mavenCentral()
     maven {
-      url 'https://nexus.zone10.fawry.io/repository/mobile/'
+      url "https://nexusmobile.fawrystaging.com:2597/repository/maven-public/"
       allowInsecureProtocol = true
-      credentials {
-        username "mobile_team"
-        password "6tpr49qUGzc1"
-      }
     }
 //    maven { url 'https:https://nexusmobile.fawrystaging.com:2597///nexus.mobile.fawry.io/repository/maven-public/' }
 //    maven { url "https://maven.google.com" }

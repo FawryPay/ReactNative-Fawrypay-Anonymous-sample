@@ -238,7 +238,7 @@ allprojects {
     repositories {
         google()
         mavenCentral()
-        maven { url "https://nexus.mobile.fawry.io/repository/maven-public/" }
+        maven { url "https://nexusmobile.fawrystaging.com:2597/repository/maven-public/" }
         maven { url "https://maven.google.com" }
         jcenter()
     }
@@ -457,6 +457,19 @@ cd ios && pod install
 | merchantRefNum | string   | required            | Merchant's transaction reference number is random 10 alphanumeric digits. | A1YU7MKI09            |
 | merchantSecretCode    | string   | required            | provided by support                                                       | 4b8jw3j2-8gjhfrc-4wc4-scde-453dek3d |
 
+<br>LaunchApplePayModel</br>
+- Used only on IOS
+
+| **PARAMETER**  | **TYPE** | **REQUIRED**        | **DESCRIPTION**                                                           | **EXAMPLE**           |
+|---------------|---------------|---------------|---------------|---------------|
+| merchantID   | String   | required            | Merchant ID provided during FawryPay account setup.                       | +/IPO2sghiethhN6tMC== |
+
+<br>LaunchCheckoutModel</br>
+
+| **PARAMETER**  | **TYPE** | **REQUIRED**        | **DESCRIPTION**                                                           | **EXAMPLE**           |
+|---------------|---------------|---------------|---------------|---------------|
+| scheme   | String   | required            | if you need use myfawry as payment method.  
+
 <br/>BillItems
 
 | **PARAMETER** | **TYPE** | **REQUIRED** | **DESCRIPTION** | **EXAMPLE**         |
@@ -472,6 +485,8 @@ cd ios && pod install
 |---------------|---------------|---------------|---------------|---------------|
 | **CustomerInfo** | LaunchCustomerModel | optional | Customer information.         | \-          |
 | **MerchantInfo** | LaunchMerchantModel | required | Merchant information.         | \-          |
+| **launchCheckoutModel**        | LaunchCheckoutModel           | optional   | if you need use myfawry as payment method.      
+| **launchApplePayModel** | LaunchApplePayModel | optional | Used only on IOS.         | \-          |
 | **BillItems**         | BillItems[]      | required       | Array of items which the user will buy, this array must be of type BillItems  | \-          |
 | signature               | String    | optional  | You can create your own signature by concatenate the following elements on the same order and hash the result using **SHA-256** as explained:"merchantCode + merchantRefNum + customerProfileId (if exists, otherwise insert"") + itemId + quantity + Price (in tow decimal format like '10.00') + Secure hash keyIn case of the order contains multiple items the list will be **sorted** by itemId and concatenated one by one for example itemId1+ Item1quantity + Item1price + itemId2 + Item2quantity + Item2price | \-          | 
 | allowVoucher            | Boolean  | optional - default value = false  | True if your account supports voucher code | \-          |
