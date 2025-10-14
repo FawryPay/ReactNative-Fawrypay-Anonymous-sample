@@ -43,7 +43,7 @@ The FawryPay React Native SDK provides seamless integration for processing payme
 ### Prerequisites
 
 - React Native 0.60+
-- iOS 12.0+ / Android API 21+
+- iOS 16.6+ / Android API 21+
 - Node.js 16+
 
 ### Step 1: Install the FawryPay SDK
