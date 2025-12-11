@@ -10,18 +10,18 @@ require Pod::Executable.execute_command('node', ['-p',
     {paths: [process.argv[1]]},
   )', __dir__]).strip
 
-platform :ios, '16.6'
+platform :ios, '17.0'
 prepare_react_native_project!
 
 target 'RnFawryPaySdkExample' do
   use_modular_headers!
   use_frameworks!# :linkage => :static
 
-  # Add Folly explicitly
+# Add Folly explicitly
   pod 'RCT-Folly', :podspec => '../node_modules/react-native/third-party-podspecs/RCT-Folly.podspec'
 
   config = use_native_modules!
-  
+
   use_react_native!(
     :path => config[:reactNativePath],
     :hermes_enabled => true,
@@ -30,7 +30,10 @@ target 'RnFawryPaySdkExample' do
     :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
 
-  # Then exclude specific pods
+  # React Native 0.79 + Firebase compatibility fix
+  $RNFirebaseAsStaticFramework = true
+ 
+    # Then exclude specific pods
   pre_install do |installer|
     Pod::Installer::Xcode::TargetValidator.send(:define_method, :verify_no_static_framework_transitive_dependencies) {}
     installer.pod_targets.each do |pod|
@@ -43,6 +46,7 @@ target 'RnFawryPaySdkExample' do
   end
   
   post_install do |installer|
+    # https://github.com/facebook/react-native/blob/main/packages/react-native/scripts/react_native_pods.rb#L197-L202
     react_native_post_install(
       installer,
       config[:reactNativePath],
@@ -50,10 +54,12 @@ target 'RnFawryPaySdkExample' do
       # :ccache_enabled => true
     )
 
+    # Fix iOS deployment target for ALL pods to iOS 17.0 (required by Fawry SDK + Alamofire)
     installer.pods_project.targets.each do |target|
       target.build_configurations.each do |config|
 
         # General settings
+        config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '17.0'
         config.build_settings['CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES'] = 'YES'
         
         # Fix for Nitro and the new architecture
@@ -113,27 +119,21 @@ target 'RnFawryPaySdkExample' do
       end
     end
 
-    #Remove PrivacyInfo File
-    xcprivacy_path = File.join(__dir__, 'RnFawryPaySdkExample', 'PrivacyInfo.xcprivacy') # adjust this
-    puts "Checking for: #{xcprivacy_path}"
-  
-    if File.exist?(xcprivacy_path)
-      puts "Found Privacy file. Attempting to delete..."
-      File.delete(xcprivacy_path)
-      puts "Deleted."
-    else
-      puts "Privacy file not found."
-    end
-
-      # Remove from project file
-    project_path = File.join(__dir__, 'RnFawryPaySdkExample.xcodeproj', 'project.pbxproj') # adjust this
-    if File.exist?(project_path)
-      content = File.read(project_path)
-      if content.include?("PrivacyInfo.xcprivacy")
-        puts "Removing PrivacyInfo.xcprivacy from project.pbxproj..."
-        filtered = content.lines.reject { |line| line.include?("PrivacyInfo.xcprivacy") }
-        File.write(project_path, filtered.join)
+    # Remove ALL PrivacyInfo.xcprivacy from main app target's Copy Bundle Resources
+    # This prevents duplicate file errors from pods (Alamofire, IQKeyboardManager, Firebase, etc.)
+    installer.aggregate_targets.each do |aggregate_target|
+      aggregate_target.user_project.targets.each do |target|
+        if target.name == 'RnFawryPaySdkExample'
+          target.build_phases.each do |phase|
+            if phase.is_a?(Xcodeproj::Project::Object::PBXResourcesBuildPhase)
+              phase.files.reject! do |file|
+                file.file_ref && file.file_ref.path && file.file_ref.path.include?('PrivacyInfo.xcprivacy')
+              end
+            end
+          end
+        end
       end
+      aggregate_target.user_project.save
     end
-  end  
+  end
 end
